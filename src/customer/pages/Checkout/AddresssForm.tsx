@@ -30,10 +30,11 @@ const ContactSchema = Yup.object().shape({
 
 interface AddressFormProp {
   handleClose: () => void;
-  paymentGateway:string
+  paymentGateway: string;
+  onAddressAdded?: (address: Address) => void;
 }
 
-const AddressForm:React.FC<AddressFormProp> = ({handleClose,paymentGateway}) => {
+const AddressForm:React.FC<AddressFormProp> = ({handleClose, paymentGateway, onAddressAdded}) => {
   const dispatch=useAppDispatch()
   const formik = useFormik({
     initialValues: {
@@ -47,8 +48,12 @@ const AddressForm:React.FC<AddressFormProp> = ({handleClose,paymentGateway}) => 
     },
     validationSchema: ContactSchema,
     onSubmit: (values) => {
-      console.log("form submited", values);
-      handleCreateOrder(values as Address);
+      console.log("form submitted", values);
+      if (onAddressAdded) {
+        onAddressAdded(values as Address);
+      } else {
+        handleCreateOrder(values as Address);
+      }
       handleClose();
     },
   });

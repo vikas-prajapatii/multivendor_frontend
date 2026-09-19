@@ -1,94 +1,210 @@
-import { Box, Divider } from "@mui/material";
-import React, { useEffect, useState } from "react";
-import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
-import { Description } from "@mui/icons-material";
+import React from "react";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import CancelIcon from "@mui/icons-material/Cancel";
+import LocalShippingIcon from "@mui/icons-material/LocalShipping";
+import InventoryIcon from "@mui/icons-material/Inventory";
+import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
+import DoneAllIcon from "@mui/icons-material/DoneAll";
+import { formatDate } from "../../util/fomateDate";
 
-const steps = [
-    { name: "Order Placed", description: "on Thu, 11 Jul", value: "PLACED" },
-    { name: "Packed", description: "Item Packed in Dispatch Warehouse", value: "CONFIRMED" },
-    { name: "Shipped", description: "by Mon, 15 Jul", value: "SHIPPED" },
-    { name: "Arriving", description: "by 16 Jul - 18 Jul", value: "ARRIVING" },
-    { name: "Arrived", description: "by 16 Jul - 18 Jul", value: "DELIVERED" },
-    // { name: "Canceled", description: "by 16 Jul - 18 Jul", value: "CANCELLED" },
-];
+interface OrderStepperProps {
+    orderStatus?: string;
+    orderDate?: string;
+    deliveryDate?: string;
+}
 
-const canceledStep = [
-    { name: "Order Placed", description: "on Thu, 11 Jul", value: "PLACED" },
-    { name: "Order Canceled", description: "on Thu, 11 Jul", value: "CANCELLED" },
+const OrderStepper: React.FC<OrderStepperProps> = ({ orderStatus, orderDate, deliveryDate }) => {
+    const isCancelled = orderStatus?.toUpperCase() === "CANCELLED" || orderStatus?.toUpperCase() === "CANCELED";
 
-];
+    const formattedOrderDate = orderDate ? formatDate(orderDate) : "Recently";
+    const formattedDeliveryDate = deliveryDate ? formatDate(deliveryDate) : "Within 5-7 days";
 
-const currentStep = 2; // Change this value based on the current step
+    const normalSteps = [
+        {
+            name: "Order Confirmed",
+            desc: formattedOrderDate,
+            subDesc: "Order placed & confirmed",
+            icon: CheckCircleOutlineIcon,
+            key: "PLACED",
+        },
+        {
+            name: "Item Packed",
+            desc: "Ready for Dispatch",
+            subDesc: "Seller packed your item",
+            icon: InventoryIcon,
+            key: "CONFIRMED",
+        },
+        {
+            name: "Shipped",
+            desc: "In Transit",
+            subDesc: "Package dispatched to your city",
+            icon: LocalShippingIcon,
+            key: "SHIPPED",
+        },
+        {
+            name: "Delivered",
+            desc: formattedDeliveryDate,
+            subDesc: "Delivered to address",
+            icon: DoneAllIcon,
+            key: "DELIVERED",
+        },
+    ];
 
-const OrderStepper = ({ orderStatus }: any) => {
+    const cancelledSteps = [
+        {
+            name: "Order Placed",
+            desc: formattedOrderDate,
+            subDesc: "Order placed initially",
+            icon: CheckCircleOutlineIcon,
+            key: "PLACED",
+        },
+        {
+            name: "Order Cancelled",
+            desc: "Cancelled",
+            subDesc: "Your order was cancelled",
+            icon: CancelIcon,
+            key: "CANCELLED",
+        },
+    ];
 
-    const [statusStep, setStatusStep] = useState(steps);
-
-    useEffect(() => {
-
-        if (orderStatus === 'CANCELLED') {
-            setStatusStep(canceledStep)
-        } else {
-            setStatusStep(steps)
+    const getStepIndex = (status?: string): number => {
+        switch (status?.toUpperCase()) {
+            case "PENDING":
+            case "PLACED":
+                return 0;
+            case "CONFIRMED":
+                return 1;
+            case "SHIPPED":
+                return 2;
+            case "DELIVERED":
+                return 3;
+            default:
+                return 0;
         }
+    };
 
-        // setCurrentStep(orderStatus==='Canceled'? canceledStep : steps)
-// .slice(0,orderStatus==="CANCELLED"?steps.length:steps.length-1)
-    }, [orderStatus])
+    const currentStepIndex = isCancelled ? 1 : getStepIndex(orderStatus);
+    const activeSteps = isCancelled ? cancelledSteps : normalSteps;
+
     return (
-        <Box className=" mx-auto my-10">
-            {statusStep.map((step, index) => (
-                <>
-                    <div key={index} className={` flex   px-4 `}>
-                        <div className="flex flex-col items-center">
-                            <Box
-                                sx={{ zIndex: -1 }}
-                                className={` w-8 h-8 rounded-full flex items-center justify-center z-10 ${index <= currentStep
-                                        ? " bg-gray-200 text-teal-500"
-                                        : "bg-gray-300 text-gray-600"
-                                    }  `}
-                            >
-                                {step.value === orderStatus ? (
-                                    <CheckCircleIcon />
-                                ) : (
-                                    <FiberManualRecordIcon sx={{ zIndex: -1 }} />
-                                )}
-                            </Box>
-                            {index < statusStep.length - 1 && (
-                                <div
-                                    className={`border h-20 w-[2px] ${index < currentStep
-                                            ? " bg-teal-500"
-                                            : "bg-gray-300 text-gray-600"
-                                        }`}
-                                ></div>
-                            )}
-                        </div>
+        <div className="w-full py-4 px-2 sm:px-4">
+            {/* Desktop Horizontal Stepper */}
+            <div className="hidden md:flex items-start justify-between relative w-full mb-6">
+                {/* Connecting Track Background */}
+                <div className="absolute top-5 left-10 right-10 h-[3px] bg-white/10 z-0" />
+                
+                {/* Filled Connecting Track */}
+                <div 
+                    className={`absolute top-5 left-10 h-[3px] z-0 transition-all duration-500 ${
+                        isCancelled ? "bg-red-500" : "bg-[#C5A059]"
+                    }`}
+                    style={{
+                        width: isCancelled 
+                            ? "80%" 
+                            : `${(currentStepIndex / (activeSteps.length - 1)) * 80}%`
+                    }}
+                />
 
-                        <div className={`ml-2 w-full`}>
+                {activeSteps.map((step, index) => {
+                    const isCompleted = index < currentStepIndex;
+                    const isCurrent = index === currentStepIndex;
+                    const StepIcon = step.icon;
+
+                    return (
+                        <div key={index} className="flex flex-col items-center relative z-10 text-center flex-1">
                             <div
-                                className={` ${ step.value===orderStatus
-                                        ? " bg-primary-color p-2 text-white font-medium rounded-md -translate-y-3"
-                                        : ""
-                                    } ${(orderStatus==="CANCELLED" && step.value===orderStatus)?"bg-red-500":""} w-full`}
+                                className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 shadow-lg ${
+                                    isCancelled && step.key === "CANCELLED"
+                                        ? "bg-red-500/20 text-red-400 border-2 border-red-500 shadow-red-500/30"
+                                        : isCompleted || (isCurrent && step.key === "DELIVERED")
+                                        ? "bg-[#10B981] text-black border-2 border-[#10B981]"
+                                        : isCurrent
+                                        ? "bg-[#C5A059] text-black border-2 border-[#D4AF37] ring-4 ring-[#C5A059]/20"
+                                        : "bg-[#1E1E26] text-zinc-500 border-2 border-white/10"
+                                }`}
                             >
-                                <p
-                                    className={`
-                           
-                            `}
-                                >
+                                {isCompleted ? (
+                                    <CheckCircleIcon sx={{ fontSize: 20 }} />
+                                ) : (
+                                    <StepIcon sx={{ fontSize: 20 }} />
+                                )}
+                            </div>
+
+                            <div className="mt-3 space-y-0.5 max-w-[140px]">
+                                <p className={`text-sm font-semibold leading-tight ${
+                                    isCurrent ? (isCancelled ? "text-red-400" : "text-[#C5A059]") : isCompleted ? "text-[#F5F5F7]" : "text-zinc-500"
+                                }`}>
                                     {step.name}
                                 </p>
-                                <p className={` ${step.value===orderStatus
-                                        ? " text-gray-200"
-                                        : "text-gray-500"
-                                    } text-xs `}>{step.description}</p>
+                                <p className="text-xs text-zinc-400 font-medium">
+                                    {step.desc}
+                                </p>
+                                <p className="text-[11px] text-zinc-500 leading-tight">
+                                    {step.subDesc}
+                                </p>
                             </div>
                         </div>
-                    </div>
-                </>
-            ))}
-        </Box>
+                    );
+                })}
+            </div>
+
+            {/* Mobile Vertical Stepper */}
+            <div className="md:hidden space-y-5">
+                {activeSteps.map((step, index) => {
+                    const isCompleted = index < currentStepIndex;
+                    const isCurrent = index === currentStepIndex;
+                    const isLast = index === activeSteps.length - 1;
+                    const StepIcon = step.icon;
+
+                    return (
+                        <div key={index} className="flex gap-4">
+                            <div className="flex flex-col items-center">
+                                <div
+                                    className={`w-9 h-9 rounded-full flex items-center justify-center transition-all duration-300 ${
+                                        isCancelled && step.key === "CANCELLED"
+                                            ? "bg-red-500/20 text-red-400 border-2 border-red-500"
+                                            : isCompleted || (isCurrent && step.key === "DELIVERED")
+                                            ? "bg-[#10B981] text-black border-2 border-[#10B981]"
+                                            : isCurrent
+                                            ? "bg-[#C5A059] text-black border-2 border-[#D4AF37] ring-4 ring-[#C5A059]/20"
+                                            : "bg-[#1E1E26] text-zinc-500 border-2 border-white/10"
+                                    }`}
+                                >
+                                    {isCompleted ? (
+                                        <CheckCircleIcon sx={{ fontSize: 18 }} />
+                                    ) : (
+                                        <StepIcon sx={{ fontSize: 18 }} />
+                                    )}
+                                </div>
+                                {!isLast && (
+                                    <div
+                                        className={`w-[2px] h-10 my-1 transition-all ${
+                                            isCancelled 
+                                                ? "bg-red-500" 
+                                                : isCompleted 
+                                                ? "bg-[#C5A059]" 
+                                                : "bg-white/10"
+                                        }`}
+                                    />
+                                )}
+                            </div>
+
+                            <div className="pt-0.5 space-y-0.5 flex-1">
+                                <div className="flex items-center justify-between">
+                                    <p className={`text-sm font-semibold ${
+                                        isCurrent ? (isCancelled ? "text-red-400" : "text-[#C5A059]") : isCompleted ? "text-[#F5F5F7]" : "text-zinc-500"
+                                    }`}>
+                                        {step.name}
+                                    </p>
+                                    <span className="text-xs text-zinc-400">{step.desc}</span>
+                                </div>
+                                <p className="text-xs text-zinc-400">{step.subDesc}</p>
+                            </div>
+                        </div>
+                    );
+                })}
+            </div>
+        </div>
     );
 };
 

@@ -10,6 +10,7 @@ import { Wallet } from '@mui/icons-material';
 import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import FlashOnIcon from '@mui/icons-material/FlashOn';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import SmilarProduct from '../SimilarProduct/SmilarProduct';
@@ -69,6 +70,14 @@ const ProductDetails = () => {
 
         }))
     }
+
+    const handleBuyNow = () => {
+        dispatch(addItemToCart({
+            jwt: localStorage.getItem('jwt'),
+            request: { productId: Number(productId), size: "FREE", quantity }
+        }));
+        navigate("/checkout/address");
+    };
 
     const handleWishlist = () => {
         if (!localStorage.getItem('jwt')) {
@@ -210,30 +219,52 @@ const ProductDetails = () => {
                         </div>
                     </div>
 
-                    <div className="pt-4 flex items-center gap-4">
-                        <Button
-                            onClick={handleAddCart}
-                            sx={{ 
-                                py: "0.85rem", 
-                                bgcolor: "#C5A059", 
-                                color: "#0B0B0E", 
-                                fontWeight: "bold",
-                                borderRadius: "0.75rem",
-                                '&:hover': { bgcolor: "#D4AF37" },
-                                textTransform: "none",
-                                fontSize: "1rem"
-                            }}
-                            variant='contained' 
-                            fullWidth 
-                            startIcon={<AddShoppingCartIcon />}
-                        >
-                            Add To Bag
-                        </Button>
+                    <div className="pt-4 space-y-3">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <Button
+                                onClick={handleBuyNow}
+                                sx={{ 
+                                    py: "0.85rem", 
+                                    bgcolor: "#C5A059", 
+                                    color: "#0B0B0E", 
+                                    fontWeight: "bold",
+                                    borderRadius: "0.75rem",
+                                    '&:hover': { bgcolor: "#D4AF37" },
+                                    textTransform: "none",
+                                    fontSize: "1rem",
+                                    boxShadow: "0 4px 14px 0 rgba(197, 160, 89, 0.3)"
+                                }}
+                                variant='contained' 
+                                fullWidth 
+                                startIcon={<FlashOnIcon />}
+                            >
+                                Buy Now
+                            </Button>
+                            <Button
+                                onClick={handleAddCart}
+                                sx={{ 
+                                    py: "0.85rem", 
+                                    bgcolor: "rgba(255,255,255,0.06)", 
+                                    color: "#F5F5F7", 
+                                    fontWeight: "bold",
+                                    borderColor: "rgba(255,255,255,0.2)",
+                                    borderRadius: "0.75rem",
+                                    '&:hover': { bgcolor: "rgba(255,255,255,0.1)", borderColor: "#C5A059", color: "#C5A059" },
+                                    textTransform: "none",
+                                    fontSize: "1rem"
+                                }}
+                                variant='outlined' 
+                                fullWidth 
+                                startIcon={<AddShoppingCartIcon />}
+                            >
+                                Add To Bag
+                            </Button>
+                        </div>
                         <Button
                             onClick={handleWishlist}
                             sx={{ 
-                                py: "0.85rem", 
-                                borderColor: isFavorite ? "#E11D48" : "rgba(255,255,255,0.2)", 
+                                py: "0.75rem", 
+                                borderColor: isFavorite ? "#E11D48" : "rgba(255,255,255,0.15)", 
                                 color: isFavorite ? "#E11D48" : "#F5F5F7",
                                 bgcolor: isFavorite ? "rgba(225,29,72,0.1)" : "transparent",
                                 borderRadius: "0.75rem",
@@ -243,14 +274,14 @@ const ProductDetails = () => {
                                     bgcolor: isFavorite ? "rgba(225,29,72,0.18)" : "rgba(197,160,89,0.08)" 
                                 },
                                 textTransform: "none",
-                                fontSize: "1rem",
+                                fontSize: "0.95rem",
                                 transition: "all 0.2s ease"
                             }}
                             variant='outlined' 
                             fullWidth 
                             startIcon={isFavorite ? <FavoriteIcon sx={{ color: "#E11D48" }} /> : <FavoriteBorderIcon />}
                         >
-                            {isFavorite ? "Wishlisted" : "Wishlist"}
+                            {isFavorite ? "Wishlisted" : "Save to Wishlist"}
                         </Button>
                     </div>
 
