@@ -1,0 +1,388 @@
+[
+  {
+    "title": "Banarasi Woven Silk Zari Saree",
+    "description": "Authentic Banarasi handloom silk saree featuring royal zari motifs and an opulent pallu with matching unstitched blouse piece.",
+    "mrpPrice": 8999,
+    "sellingPrice": 3999,
+    "brand": "Noir Silk",
+    "color": "Crimson",
+    "images": [
+      "https://res.cloudinary.com/dxoqwusir/image/upload/v1725359611/SUHANI-2011_5_nrwwhr.webp",
+      "https://res.cloudinary.com/dxoqwusir/image/upload/v1725359626/silk-saree_xfukfd.jpg"
+    ],
+    "category": "women",
+    "category2": "women_indian_and_fusion_wear",
+    "category3": "women_sarees",
+    "sizes": "FREE",
+    "quantity": 25
+  },
+  {
+    "title": "Kanjeevaram Temple Border Royal Saree",
+    "description": "Pure Kanjeevaram woven silk saree adorned with intricate gold zari brocade and regal temple borders.",
+    "mrpPrice": 12999,
+    "sellingPrice": 5499,
+    "brand": "Kanchipuram Heritage",
+    "color": "Purple",
+    "images": [
+      "https://res.cloudinary.com/dxoqwusir/image/upload/v1725359634/SUHANI-2011_2_byfz48.webp",
+      "https://res.cloudinary.com/dxoqwusir/image/upload/v1725359617/SUHANI-2011_4_rsj092.webp"
+    ],
+    "category": "women",
+    "category2": "women_indian_and_fusion_wear",
+    "category3": "women_sarees",
+    "sizes": "FREE",
+    "quantity": 20
+  },
+  {
+    "title": "Royal Velvet Embroidered Lehenga Choli",
+    "description": "Luxurious velvet semi-stitched bridal lehenga with heavy dori, sequins, and badla embroidery accompanied by an embellished net dupatta.",
+    "mrpPrice": 18999,
+    "sellingPrice": 8499,
+    "brand": "Zari Couture",
+    "color": "Maroon",
+    "images": [
+      "https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/23807268/2023/6/29/9930b235-5318-4755-abbe-08f99e969e781688026636544LehengaCholi7.jpg"
+    ],
+    "category": "women",
+    "category2": "women_indian_and_fusion_wear",
+    "category3": "women_lehenga_cholis",
+    "sizes": "FREE",
+    "quantity": 15
+  },
+  {
+    "title": "Floral Anarkali Kurta Set with Chiffon Dupatta",
+    "description": "Hand-block printed pure cotton Anarkali flared kurta paired with narrow pants and a lightweight chiffon dupatta.",
+    "mrpPrice": 4599,
+    "sellingPrice": 1999,
+    "brand": "Biba Style",
+    "color": "Pink",
+    "images": [
+      "https://images.pexels.com/photos/12730873/pexels-photo-12730873.jpeg?auto=compress&cs=tinysrgb&w=800"
+    ],
+    "category": "women",
+    "category2": "women_indian_and_fusion_wear",
+    "category3": "women_kurtas_and_suits",
+    "sizes": "S,M,L,XL",
+    "quantity": 30
+  },
+  {
+    "title": "Champagne Silk Satin Evening Maxi Gown",
+    "description": "Elegant bias-cut silk satin evening maxi gown featuring an open back and cowl neckline, ideal for gala events and cocktail evenings.",
+    "mrpPrice": 7999,
+    "sellingPrice": 3499,
+    "brand": "Aura Luxe",
+    "color": "Beige",
+    "images": [
+      "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=800&auto=format&fit=crop&q=80"
+    ],
+    "category": "women",
+    "category2": "women_western_wear",
+    "category3": "women_dresses",
+    "sizes": "S,M,L",
+    "quantity": 18
+  },
+  {
+    "title": "Italian Top-Grain Leather Tote Bag",
+    "description": "Spacious structured handcrafted leather tote bag with interior organizer, zip closure, and polished gold-toned hardware.",
+    "mrpPrice": 6499,
+    "sellingPrice": 2999,
+    "brand": "L Artisan",
+    "color": "Brown",
+    "images": [
+      "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=800&auto=format&fit=crop&q=80"
+    ],
+    "category": "women",
+    "category2": "women_handbags_bags_wallets",
+    "category3": "women_handbags",
+    "sizes": "FREE",
+    "quantity": 22
+  },
+  {
+    "title": "Men Classic Oxford Tailored Cotton Shirt",
+    "description": "100% two-ply Egyptian cotton slim fit formal button-down shirt with structured collar and mother-of-pearl buttons.",
+    "mrpPrice": 3499,
+    "sellingPrice": 1499,
+    "brand": "Savile Row",
+    "color": "White",
+    "images": [
+      "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=800&auto=format&fit=crop&q=80"
+    ],
+    "category": "men",
+    "category2": "men_topwear",
+    "category3": "men_casual_shirts",
+    "sizes": "38,40,42,44",
+    "quantity": 40
+  },
+  {
+    "title": "Men Vintage Leather Motorcycle Biker Jacket",
+    "description": "Full-grain genuine sheepskin leather biker jacket featuring asymmetrical front zipper, quilted shoulder panels, and silver hardware.",
+    "mrpPrice": 14999,
+    "sellingPrice": 5999,
+    "brand": "Iron & Hyde",
+    "color": "Black",
+    "images": [
+      "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=800&auto=format&fit=crop&q=80"
+    ],
+    "category": "men",
+    "category2": "men_topwear",
+    "category3": "men_jackets",
+    "sizes": "M,L,XL",
+    "quantity": 14
+  },
+  {
+    "title": "Men Heavyweight Cotton Graphic Streetwear Tee",
+    "description": "240 GSM combed cotton oversized streetwear tee with ribbed collar and minimalist chest typography print.",
+    "mrpPrice": 1999,
+    "sellingPrice": 799,
+    "brand": "Urban Noir",
+    "color": "Black",
+    "images": [
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=800&auto=format&fit=crop&q=80"
+    ],
+    "category": "men",
+    "category2": "men_topwear",
+    "category3": "men_t_shirts",
+    "sizes": "S,M,L,XL",
+    "quantity": 50
+  },
+  {
+    "title": "Men Japanese Selvedge Slim Fit Denim Jeans",
+    "description": "Raw 13.5 oz indigo-dyed selvedge denim woven on vintage shuttle looms. Built to develop unique fading whiskering over time.",
+    "mrpPrice": 4999,
+    "sellingPrice": 2299,
+    "brand": "Denim Co",
+    "color": "Blue",
+    "images": [
+      "https://images.unsplash.com/photo-1542272604-780c96856592?w=800&auto=format&fit=crop&q=80"
+    ],
+    "category": "men",
+    "category2": "men_bottomwear",
+    "category3": "men_jeans",
+    "sizes": "30,32,34,36",
+    "quantity": 35
+  },
+  {
+    "title": "Men Handcrafted Italian Suede Tassel Loafers",
+    "description": "Blake stitched soft calfskin suede dress loafers with leather lining and durable stacked heel.",
+    "mrpPrice": 7499,
+    "sellingPrice": 3299,
+    "brand": "Venezia",
+    "color": "Brown",
+    "images": [
+      "https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/24651572/2023/8/25/4fbf6d8c-d093-46c5-a5a6-7dd67c0c76551692964752597HouseofPataudiMenTanFauxLeatherFormalSlipOnLoafers1.jpg"
+    ],
+    "category": "men",
+    "category2": "men_footwear",
+    "category3": "men_formal_shoes",
+    "sizes": "7,8,9,10,11",
+    "quantity": 25
+  },
+  {
+    "title": "Men Retro Air Low-Top Leather Sneakers",
+    "description": "Premium nappa leather casual court sneakers with cushioned memory foam insole and cupsole construction.",
+    "mrpPrice": 5999,
+    "sellingPrice": 2499,
+    "brand": "Strider",
+    "color": "White",
+    "images": [
+      "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=800&auto=format&fit=crop&q=80"
+    ],
+    "category": "men",
+    "category2": "men_footwear",
+    "category3": "men_sneakers",
+    "sizes": "7,8,9,10,11",
+    "quantity": 30
+  },
+  {
+    "title": "Apple iPhone 15 Pro Max 256GB Titanium",
+    "description": "Forged in titanium with aerospace-grade strength. Powered by the A17 Pro chip, Super Retina XDR display with ProMotion, and 48MP main camera.",
+    "mrpPrice": 159900,
+    "sellingPrice": 139900,
+    "brand": "Apple",
+    "color": "Gray",
+    "images": [
+      "https://rukminim2.flixcart.com/image/416/416/xif0q/mobile/5/t/j/edge-50-fusion-pb300002in-motorola-original-imahywzrfagkuyxx.jpeg?q=70&crop=false"
+    ],
+    "category": "electronics",
+    "category2": "mobiles",
+    "category3": "mobiles",
+    "sizes": "256GB,512GB",
+    "quantity": 20
+  },
+  {
+    "title": "Samsung Galaxy S24 Ultra 5G AI Smartphone",
+    "description": "Experience Galaxy AI with Circle to Search, Live Translate, Note Assist. 200MP camera with Quad Telephoto and built-in S Pen.",
+    "mrpPrice": 134999,
+    "sellingPrice": 119999,
+    "brand": "Samsung",
+    "color": "Black",
+    "images": [
+      "https://rukminim2.flixcart.com/image/128/128/xif0q/mobile/o/s/c/-original-imagx9pfuguwhfhe.jpeg?q=70&crop=false"
+    ],
+    "category": "electronics",
+    "category2": "mobiles",
+    "category3": "mobiles",
+    "sizes": "256GB,512GB",
+    "quantity": 15
+  },
+  {
+    "title": "Apple MacBook Pro 16-inch M3 Max 36GB 1TB",
+    "description": "Apple M3 Max chip with 16-core CPU and 40-core GPU. Liquid Retina XDR display with up to 22 hours of battery life.",
+    "mrpPrice": 349900,
+    "sellingPrice": 319900,
+    "brand": "Apple",
+    "color": "Black",
+    "images": [
+      "https://rukminim2.flixcart.com/image/312/312/xif0q/computer/x/9/j/-original-imahyjzh7m2zsqdg.jpeg?q=70"
+    ],
+    "category": "electronics",
+    "category2": "laptops",
+    "category3": "laptops",
+    "sizes": "1TB SSD",
+    "quantity": 10
+  },
+  {
+    "title": "ASUS ROG Zephyrus G16 OLED Gaming Laptop",
+    "description": "Intel Core Ultra 9 185H with NVIDIA GeForce RTX 4080 12GB GDDR6, 2.5K 240Hz OLED Nebula display in ultra-slim aluminum chassis.",
+    "mrpPrice": 249990,
+    "sellingPrice": 219990,
+    "brand": "ASUS",
+    "color": "Silver",
+    "images": [
+      "https://rukminim2.flixcart.com/image/312/312/xif0q/computer/x/9/j/-original-imahyjzh7m2zsqdg.jpeg?q=70"
+    ],
+    "category": "electronics",
+    "category2": "laptops",
+    "category3": "gaming_laptops",
+    "sizes": "32GB RAM",
+    "quantity": 12
+  },
+  {
+    "title": "Sony WH-1000XM5 Wireless Noise Cancelling Headphones",
+    "description": "Industry-leading noise canceling with Auto NC Optimizer, 30-hour battery life, speak-to-chat, and crystal-clear hands-free calling.",
+    "mrpPrice": 34990,
+    "sellingPrice": 26990,
+    "brand": "Sony",
+    "color": "Silver",
+    "images": [
+      "https://rukminim2.flixcart.com/image/612/612/kz4gh3k0/headphone/c/v/r/-original-imagb7bmhdgghzxq.jpeg?q=70"
+    ],
+    "category": "electronics",
+    "category2": "headphones_headsets",
+    "category3": "headphones_headsets",
+    "sizes": "ONE SIZE",
+    "quantity": 30
+  },
+  {
+    "title": "Apple Watch Ultra 2 Titanium GPS Cellular 49mm",
+    "description": "The most rugged and capable Apple Watch. Aerospace-grade titanium case, precision dual-frequency GPS, and up to 36 hours of battery life.",
+    "mrpPrice": 89900,
+    "sellingPrice": 82900,
+    "brand": "Apple",
+    "color": "Orange",
+    "images": [
+      "https://rukminim2.flixcart.com/image/612/612/xif0q/smartwatch/f/g/g/-original-imagywnz46fngcks.jpeg?q=70"
+    ],
+    "category": "electronics",
+    "category2": "smart_watches",
+    "category3": "smart_watches",
+    "sizes": "49mm",
+    "quantity": 18
+  },
+  {
+    "title": "Marshall Stanmore III Bluetooth Home Speaker",
+    "description": "Iconic vintage rock n roll design with re-engineered soundstage, dynamic loudness, and RCA/3.5mm inputs.",
+    "mrpPrice": 37999,
+    "sellingPrice": 31999,
+    "brand": "Marshall",
+    "color": "Black",
+    "images": [
+      "https://rukminim2.flixcart.com/image/612/612/xif0q/speaker/6/z/2/-original-imahfgfkr5gkk9aq.jpeg?q=70"
+    ],
+    "category": "electronics",
+    "category2": "speakers",
+    "category3": "speakers",
+    "sizes": "STANDARD",
+    "quantity": 25
+  },
+  {
+    "title": "Canon EOS R6 Mark II Mirrorless Camera Kit",
+    "description": "24.2 MP full-frame CMOS sensor, 6K ProRes RAW external recording, Dual Pixel CMOS AF II, and up to 40 fps continuous shooting.",
+    "mrpPrice": 249995,
+    "sellingPrice": 214999,
+    "brand": "Canon",
+    "color": "Black",
+    "images": [
+      "https://rukminim2.flixcart.com/image/312/312/jfbfde80/camera/n/r/n/canon-eos-eos-3000d-dslr-original-imaf3t5h9yuyc5zu.jpeg?q=70"
+    ],
+    "category": "electronics",
+    "category2": "cameras",
+    "category3": "cameras",
+    "sizes": "24-105mm Kit",
+    "quantity": 8
+  },
+  {
+    "title": "Sony BRAVIA XR 65-inch 4K OLED Smart Google TV",
+    "description": "Cognitive Processor XR, XR OLED Contrast Pro with pure black contrast, Acoustic Surface Audio+, and 120Hz gaming support.",
+    "mrpPrice": 229900,
+    "sellingPrice": 189900,
+    "brand": "Sony",
+    "color": "Black",
+    "images": [
+      "https://rukminim2.flixcart.com/image/312/312/xif0q/television/9/p/9/-original-imah2v29z86u7b79.jpeg?q=70"
+    ],
+    "category": "electronics",
+    "category2": "television",
+    "category3": "television",
+    "sizes": "65-inch",
+    "quantity": 10
+  },
+  {
+    "title": "Handcrafted Persian Silk Living Room Area Carpet",
+    "description": "Exquisite traditional floral medallion carpet woven with premium silk yarn and non-slip cotton backing. 5x7 feet.",
+    "mrpPrice": 16999,
+    "sellingPrice": 7999,
+    "brand": "Kashmir Loom",
+    "color": "Maroon",
+    "images": [
+      "https://images.unsplash.com/photo-1600121848594-d8644e57abab?w=800&auto=format&fit=crop&q=80"
+    ],
+    "category": "home_furniture",
+    "category2": "flooring",
+    "category3": "carpets",
+    "sizes": "5x7 ft",
+    "quantity": 15
+  },
+  {
+    "title": "1000 Thread Count Egyptian Cotton Royal Bedsheet Set",
+    "description": "Ultra-soft sateen weave sheet set with two matching king pillowcases. Breathable, hypoallergenic, and fade-resistant.",
+    "mrpPrice": 5999,
+    "sellingPrice": 2499,
+    "brand": "Loom & Haven",
+    "color": "White",
+    "images": [
+      "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=800&auto=format&fit=crop&q=80"
+    ],
+    "category": "home_furniture",
+    "category2": "bed_linen_furnishing",
+    "category3": "bedsheets",
+    "sizes": "King",
+    "quantity": 30
+  },
+  {
+    "title": "Modern Geometric Brass & Gold Metal Wall Art",
+    "description": "Hand-welded contemporary 3D metal wall sculpture finished with anti-rust gold and champagne electroplating. 48x24 inches.",
+    "mrpPrice": 6999,
+    "sellingPrice": 2999,
+    "brand": "Nordic Home",
+    "color": "Gold",
+    "images": [
+      "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=800&auto=format&fit=crop&q=80"
+    ],
+    "category": "home_furniture",
+    "category2": "home_decor",
+    "category3": "wall_decor",
+    "sizes": "48x24 in",
+    "quantity": 20
+  }
+]

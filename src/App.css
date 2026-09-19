@@ -1,0 +1,11 @@
+.App {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+h1, h2, h3, h4, h5, h6, .logo {
+  font-family: "Cormorant Garamond", serif;
+  letter-spacing: 0.03em;
+}

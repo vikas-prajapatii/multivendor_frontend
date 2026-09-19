@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #070708;
+  color: #FFFFFF;
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+/* Glassmorphism Classes */
+.glass-panel {
+  background: rgba(22, 22, 29, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-panel-hover:hover {
+  background: rgba(22, 22, 29, 0.85);
+  border-color: rgba(197, 160, 89, 0.4);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  transform: translateY(-2px);
+}
+
+/* Unified Premium Card Class */
+.premium-card {
+  background: rgba(22, 22, 29, 0.4);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 12px;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.premium-card:hover {
+  background: rgba(22, 22, 29, 0.7);
+  border-color: rgba(197, 160, 89, 0.3);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+  transform: translateY(-4px);
+}
+
+/* Gold Gradient Classes */
+.gold-gradient-text {
+  background: linear-gradient(135deg, #F0D394 0%, #C5A059 50%, #A37F3C 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.gold-gradient-bg {
+  background: linear-gradient(135deg, #F0D394 0%, #C5A059 100%);
+  color: #0B0C10;
+}
+
+.gold-gradient-bg:hover {
+  background: linear-gradient(135deg, #E2C07D 0%, #B59049 100%);
+}
+
+/* Standard transition overrides */
+.hover-scale {
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.hover-scale:hover {
+  transform: scale(1.03);
+}
+
+/* Custom dark scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #070708;
+}
+::-webkit-scrollbar-thumb {
+  background: #1C1C24;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #C5A059;
+}
