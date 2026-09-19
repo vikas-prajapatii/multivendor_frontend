@@ -11,12 +11,15 @@ import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 import SmilarProduct from '../SimilarProduct/SmilarProduct';
 import ZoomableImage from './ZoomableImage';
 import { useAppDispatch, useAppSelector } from '../../../../Redux Toolkit/Store';
 import { useNavigate, useParams } from 'react-router-dom';
 import { fetchProductById, getAllProducts } from '../../../../Redux Toolkit/Customer/ProductSlice';
 import { addItemToCart } from '../../../../Redux Toolkit/Customer/CartSlice';
+import { addProductToWishlist } from '../../../../Redux Toolkit/Customer/WishlistSlice';
+import { isWishlisted } from '../../../../util/isWishlisted';
 import ProductReviewCard from '../../Review/ProductReviewCard';
 import RatingCard from '../../Review/RatingCard';
 import { fetchReviewsByProductId } from '../../../../Redux Toolkit/Customer/ReviewSlice';
@@ -39,12 +42,15 @@ const ProductDetails = () => {
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
     const dispatch = useAppDispatch();
-    const { products, review } = useAppSelector(store => store)
+    const { products, review, wishlist } = useAppSelector(store => store)
     const navigate = useNavigate()
     const { productId,categoryId } = useParams()
     const [selectedImage, setSelectedImage] = useState(0);
     const [quantity, setQuantity] = useState(1)
 
+    const isFavorite = products.product && wishlist.wishlist 
+        ? isWishlisted(wishlist.wishlist, products.product) 
+        : false;
 
     useEffect(() => {
 
@@ -63,6 +69,16 @@ const ProductDetails = () => {
 
         }))
     }
+
+    const handleWishlist = () => {
+        if (!localStorage.getItem('jwt')) {
+            navigate("/login");
+            return;
+        }
+        if (productId) {
+            dispatch(addProductToWishlist({ productId: Number(productId) }));
+        }
+    };
 
  
 
@@ -214,20 +230,27 @@ const ProductDetails = () => {
                             Add To Bag
                         </Button>
                         <Button
+                            onClick={handleWishlist}
                             sx={{ 
                                 py: "0.85rem", 
-                                borderColor: "rgba(255,255,255,0.2)", 
-                                color: "#F5F5F7",
+                                borderColor: isFavorite ? "#E11D48" : "rgba(255,255,255,0.2)", 
+                                color: isFavorite ? "#E11D48" : "#F5F5F7",
+                                bgcolor: isFavorite ? "rgba(225,29,72,0.1)" : "transparent",
                                 borderRadius: "0.75rem",
-                                '&:hover': { borderColor: "#C5A059", color: "#C5A059", bgcolor: "rgba(197,160,89,0.08)" },
+                                '&:hover': { 
+                                    borderColor: isFavorite ? "#E11D48" : "#C5A059", 
+                                    color: isFavorite ? "#E11D48" : "#C5A059", 
+                                    bgcolor: isFavorite ? "rgba(225,29,72,0.18)" : "rgba(197,160,89,0.08)" 
+                                },
                                 textTransform: "none",
-                                fontSize: "1rem"
+                                fontSize: "1rem",
+                                transition: "all 0.2s ease"
                             }}
                             variant='outlined' 
                             fullWidth 
-                            startIcon={<FavoriteBorderIcon />}
+                            startIcon={isFavorite ? <FavoriteIcon sx={{ color: "#E11D48" }} /> : <FavoriteBorderIcon />}
                         >
-                            Wishlist
+                            {isFavorite ? "Wishlisted" : "Wishlist"}
                         </Button>
                     </div>
 

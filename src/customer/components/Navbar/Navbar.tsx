@@ -29,7 +29,7 @@ const Navbar = () => {
   const theme = useTheme();
   const isLarge = useMediaQuery(theme.breakpoints.up("lg"));
   const dispatch = useAppDispatch();
-  const { user, auth, cart, sellers } = useAppSelector((store) => store);
+  const { user, auth, cart, sellers, wishlist } = useAppSelector((store) => store);
   const navigate = useNavigate();
   
 
@@ -131,8 +131,10 @@ const Navbar = () => {
           )}
 
           <IconButton onClick={()=>navigate("/wishlist")}>
-            <FavoriteBorder sx={{ fontSize: 29 }}
-                className="text-gray-300 hover:text-[#C5A059] transition-colors" />
+            <Badge badgeContent={wishlist.wishlist?.products?.length} color="secondary">
+              <FavoriteBorder sx={{ fontSize: 29 }}
+                  className="text-gray-300 hover:text-[#C5A059] transition-colors" />
+            </Badge>
           </IconButton>
 
           <IconButton onClick={() => navigate("/cart")}>
