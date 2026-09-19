@@ -7,7 +7,7 @@ interface PromptMessageProps {
 
 const PromptMessage = ({ message }: PromptMessageProps) => {
   return (
-    <div className="px-4 py-2.5 bg-amber-600 text-white font-medium rounded-2xl rounded-tr-none max-w-[85%] text-sm shadow-sm break-words">
+    <div className="px-4 py-2.5 bg-amber-600 text-white font-medium rounded-2xl rounded-tr-none max-w-[85%] text-sm shadow-sm break-words whitespace-pre-line">
       {message}
     </div>
   );
