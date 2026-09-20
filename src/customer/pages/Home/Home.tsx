@@ -4,14 +4,12 @@ import HomeCategory from './HomeCategory/HomeCategory'
 import TopBrand from './TopBrands/Grid'
 import ElectronicCategory from './Electronic Category/ElectronicCategory'
 import ChatBubbleIcon from '@mui/icons-material/ChatBubble';
-import { Backdrop, Button, CircularProgress } from '@mui/material'
+import { Button, LinearProgress } from '@mui/material'
 import ChatBot from '../ChatBot/ChatBot'
 import { useNavigate } from 'react-router-dom'
 import StorefrontIcon from '@mui/icons-material/Storefront';
 import { useAppSelector } from '../../../Redux Toolkit/Store'
 import DealSlider from './Deals/Deals'
-
-
 
 const Home = () => {
     const [showChatBot, setShowChatBot] = useState(false)
@@ -29,26 +27,43 @@ const Home = () => {
     }
     return (
         <>
-        {(!homePage.loading)?<div className='space-y-5 lg:space-y-10 relative'>
-            {homePage.homePageData?.electricCategories && <ElectronicCategory />}
+        {homePage.loading && (
+            <LinearProgress
+                sx={{
+                    position: 'fixed',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    zIndex: 9999,
+                    height: 3,
+                    bgcolor: 'rgba(197, 160, 89, 0.2)',
+                    '& .MuiLinearProgress-bar': { bgcolor: '#C5A059' }
+                }}
+            />
+        )}
+        <div className='space-y-5 lg:space-y-10 relative'>
+            <ElectronicCategory />
             {/* <Banner /> */}
 
-
-          {homePage.homePageData?.grid &&  <section >
-                {/* <h1 className='text-lg lg:text-4xl font-bold text-[#00927c] pb-5 lg:pb-20 text-center'>SHOP FOR WEDDING</h1> */}
+            <section>
                 <TopBrand />
-            </section>}
-        {homePage.homePageData?.deals &&    <section className='pt-10'>
-            <h1 className='text-center text-lg lg:text-4xl font-bold text-[#C5A059] pb-5 lg:pb-10'>Today's Deals</h1>
-                <DealSlider/>
-            </section>}
-           {homePage.homePageData?.shopByCategories && <section className='flex flex-col justify-center items-center py-20 px-5 lg:px-20'>
+            </section>
+
+            {homePage.homePageData?.deals && homePage.homePageData.deals.length > 0 && (
+                <section className='pt-10'>
+                    <h1 className='text-center text-lg lg:text-4xl font-bold text-[#C5A059] pb-5 lg:pb-10'>Today's Deals</h1>
+                    <DealSlider/>
+                </section>
+            )}
+
+            <section className='flex flex-col justify-center items-center py-20 px-5 lg:px-20'>
                 <h1 className='text-lg lg:text-4xl font-bold text-[#C5A059] pb-5 lg:pb-20'>SHOP BY CATEGORY</h1>
                 <HomeCategory />
-            </section>}
+            </section>
+
             <section className='lg:px-20 relative h-[200px] lg:h-[450px] object-cover'>
                 <img className='w-full h-full' src={"/seller_banner_image.jpg"} alt="" />
-                <div className='absolute top-1/2 left-4 lg:left-[15rem] transform  -translate-y-1/2 font-semibold lg:text-4xl space-y-3 '>
+                <div className='absolute top-1/2 left-4 lg:left-[15rem] transform -translate-y-1/2 font-semibold lg:text-4xl space-y-3'>
                     <h1 className=''>
                         Sell Your Product
                     </h1>
@@ -63,32 +78,16 @@ const Home = () => {
                             Become Seller
                         </Button>
                     </div>
-
                 </div>
-
             </section>
 
-            <section className='fixed bottom-10 right-10'>
-                {showChatBot ? <ChatBot handleClose={handleCloseChatBot} /> : <Button onClick={handleShowChatBot} sx={{ borderRadius: "2rem" }} variant='contained' className='h-16 w-16  flex justify-center items-center rounded-full'>
+            <section className='fixed bottom-10 right-10 z-40'>
+                {showChatBot ? <ChatBot handleClose={handleCloseChatBot} /> : <Button onClick={handleShowChatBot} sx={{ borderRadius: "2rem" }} variant='contained' className='h-16 w-16 flex justify-center items-center rounded-full'>
                     <ChatBubbleIcon sx={{ color: "white", fontSize: "2rem" }} />
                 </Button>}
-
-
-
-
             </section>
-    
-
-
-        </div>: <Backdrop
-                open={true}
-
-            >
-                <CircularProgress color="inherit" />
-            </Backdrop>}
-       
+        </div>
         </>
-        
     )
 }
 

@@ -137,17 +137,21 @@ const homeCategory=[
       "section":"SHOP_BY_CATEGORIES",
       image:"https://assets.myntassets.com/h_720,q_90,w_540/v1/assets/images/productimage/2021/6/10/5be80654-037c-4591-99c9-a403646971981623344562713-1.jpg"
     },
-    
-    
-  
-  
-]
+];
+
 const HomeCategory = () => {
-  const { homePage} = useAppSelector((store) => store);
+  const { homePage } = useAppSelector((store) => store);
+  const items =
+    homePage.homePageData?.shopByCategories &&
+    homePage.homePageData.shopByCategories.length > 0
+      ? homePage.homePageData.shopByCategories
+      : homeCategory;
+
   return (
     <div className='flex justify-center gap-7 flex-wrap '>
-        {homePage.homePageData?.shopByCategories.map((item)=><HomeCategoryCard item={item}/>)}
-        
+        {items.map((item, idx) => (
+          <HomeCategoryCard key={item.categoryId || idx} item={item} />
+        ))}
     </div>
   )
 }

@@ -29,11 +29,13 @@ const homeSlice = createSlice({
     });
     builder.addCase(fetchHomePageData.fulfilled, (state, action: PayloadAction<HomeData>) => {
       state.loading = false;
-      state.homePageData = action.payload;
+      if (action.payload) {
+        state.homePageData = action.payload;
+      }
     });
     builder.addCase(fetchHomePageData.rejected, (state, action) => {
       state.loading = false;
-      state.error = action.error.message || 'Failed to load home page data';
+      state.error = (action.payload as string) || action.error.message || 'Failed to load home page data';
     });
 
     // Handle createHomeCategories lifecycle
@@ -43,11 +45,13 @@ const homeSlice = createSlice({
     });
     builder.addCase(createHomeCategories.fulfilled, (state, action) => {
       state.loading = false;
-      state.homePageData = action.payload;
+      if (action.payload) {
+        state.homePageData = action.payload;
+      }
     });
     builder.addCase(createHomeCategories.rejected, (state, action) => {
       state.loading = false;
-      state.error = action.error.message || 'Failed to create home categories';
+      state.error = (action.payload as string) || action.error.message || 'Failed to create home categories';
     });
   },
 });

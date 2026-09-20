@@ -63,14 +63,20 @@ const electronics = [
 ];
 
 const ElectronicCategory = () => {
-  const {homePage}=useAppSelector(store=>store)
+  const { homePage } = useAppSelector((store) => store);
   const isSmallScreen = useMediaQuery("(max-width:600px)");
+  const items =
+    homePage.homePageData?.electricCategories &&
+    homePage.homePageData.electricCategories.length > 0
+      ? homePage.homePageData.electricCategories
+      : electronics;
+
   return (
     <div className="flex flex-wrap justify-between py-5 lg:px-20 border-b">
-      {homePage.homePageData?.electricCategories
-        .slice(0, isSmallScreen ? 5 : electronics.length)
-        .map((item) => (
-          <ElectronicCategoryCard item={item} />
+      {items
+        .slice(0, isSmallScreen ? 5 : items.length)
+        .map((item, idx) => (
+          <ElectronicCategoryCard key={item.categoryId || idx} item={item} />
         ))}
     </div>
   );

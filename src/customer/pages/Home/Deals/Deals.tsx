@@ -7,11 +7,17 @@ import { useAppSelector } from "../../../../Redux Toolkit/Store";
 import type { Deal } from "../../../../types/dealTypes";
 
 export default function DealSlider() {
-    const {homePage}=useAppSelector(store=>store)
+    const { homePage } = useAppSelector(store => store)
+    const deals = homePage.homePageData?.deals;
+
+    if (!deals || deals.length === 0) {
+        return null;
+    }
+
     var settings = {
         dots: true,
-        infinite: true,
-        slidesToShow: 6,
+        infinite: deals.length > 6,
+        slidesToShow: Math.min(6, deals.length),
         slidesToScroll: 1,
         autoplay: true,
         speed: 2000,
@@ -21,14 +27,14 @@ export default function DealSlider() {
             {
               breakpoint: 1024, // Large screen
               settings: {
-                slidesToShow: 4,
+                slidesToShow: Math.min(4, deals.length),
                 slidesToScroll: 1,
               },
             },
             {
               breakpoint: 768, // Tablet
               settings: {
-                slidesToShow: 2,
+                slidesToShow: Math.min(2, deals.length),
                 slidesToScroll: 1,
               },
             },
@@ -46,10 +52,11 @@ export default function DealSlider() {
         <div className=" py-5 lg:px-20">
             <div className="slide-container  ">
                 <Slider {...settings}>
-                    {homePage.homePageData?.deals?.map((item:Deal) => <div className="border flex flex-col items-center justify-center">
-                        <DealCard deal={item}/>
-                    </div>)}
-
+                    {deals.map((item: Deal, idx: number) => (
+                        <div key={item.id || idx} className="border flex flex-col items-center justify-center">
+                            <DealCard deal={item}/>
+                        </div>
+                    ))}
                 </Slider>
             </div>
         </div>
